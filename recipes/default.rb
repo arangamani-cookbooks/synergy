@@ -18,3 +18,11 @@
 #
 
 package "synergy"
+
+template node['synergy']['config_file'] do
+  owner node['synergy']['user']
+  group node['synergy']['group']
+  mode 0644
+  variables(:config => node['synergy'])
+  action :create
+end

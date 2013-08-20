@@ -17,7 +17,13 @@
 #
 
 # The synergy configuration file location.
-default['synergy']['config_file'] = '~/.synergy.conf'
+default['synergy']['config_file'] = '/etc/synergy.conf'
+
+# The user that owns the synergy configuration file
+default['synergy']['user'] = 'root'
+
+# The group that owns the synergy configuration file
+default['synergy']['group'] = 'root'
 
 # These are the nice names of the hosts to make it easy to write the config
 # file. The aliases section below contain the "actual" names of the hosts

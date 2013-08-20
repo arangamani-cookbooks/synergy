@@ -72,10 +72,23 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :mysql => {
-        :server_root_password => 'rootpass',
-        :server_debian_password => 'debpass',
-        :server_repl_password => 'replpass'
+      :synergy => {
+        :screens => ['Laptop', 'Desktop1', 'MacBook'],
+        :links => {
+          :Desktop1 => {
+            :right => 'MacBook',
+            :left => 'Laptop'
+          },
+          :Laptop => {
+            :right => 'Desktop1'
+          },
+          :MacBook => {
+            :left => 'Desktop1'
+          }
+        },
+        :aliases => {
+          :MacBook => 'Kannans-MacBook-Pro'
+        }
       }
     }
 
